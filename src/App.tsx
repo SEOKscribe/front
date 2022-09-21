@@ -12,6 +12,7 @@ import {
   NavigateFunction,
 } from "react-router-dom";
 import LoginComponent from "./login/login";
+import SignComponent from "./sign/sign";
 
 const App: React.FC = () => {
   let navigate: NavigateFunction = useNavigate();
@@ -30,7 +31,13 @@ const App: React.FC = () => {
             Random Chat
           </Navbar.Brand>
           <Nav>
-            <Nav.Link href="#deets">Sign up</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/sign");
+              }}
+            >
+              Sign up
+            </Nav.Link>
             <Nav.Link
               eventKey={2}
               onClick={() => {
@@ -44,6 +51,7 @@ const App: React.FC = () => {
       </Navbar>
       <Routes>
         <Route path="/login" element={<LoginComponent />} />
+        <Route path="/login" element={<SignComponent />} />
       </Routes>
     </div>
   );
